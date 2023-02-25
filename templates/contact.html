@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity=
+      "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+</head>
+<body>
+	<style type="text/css">
+		body{
+			font-family: 'Montserrat', sans-serif;
+		}
+	</style>
+	<div class="col-lg-12 text-center">
+		<div class="jumbotron">
+		<h1 class="display">Personal Details</h1>
+		<p class="lead">Personal details Form with Flask !</p>
+
+		{% if success %}
+			<p class="lead text-success">Thank you for feedback !</p>
+		{% endif %}
+		</div>
+
+
+		{% for message  in form.name.errors %}
+		   <div class="flash">{{ message }}</div>
+		{% endfor %}
+
+    {% for message  in form.title.errors %}
+		   <div class="flash">{{ message }}</div>
+		{% endfor %}
+
+    {% for message  in form.company.errors %}
+		   <div class="flash">{{ message }}</div>
+		{% endfor %}
+
+		{% for message  in form.email.errors %}
+		   <div class="flash">{{ message }}</div>
+		{% endfor %}
+
+		{% for message  in form.phone.errors %}
+		   <div class="flash">{{ message }}</div>
+		{% endfor %}
+
+		{% for message  in form.address.errors %}
+		   <div class="flash">{{ message }}</div>
+		{% endfor %}
+
+    {% for message  in form.template.errors %}
+		   <div class="flash">{{ message }}</div>
+		{% endfor %}
+	</div>
+
+		<div class="col-md-8 ml-5">
+		<form action="{{ url_for('contactForm') }}" method="POST">
+
+
+			{{ form.hidden_tag() }}
+
+			{{ form.name.label() }}
+			{{ form.name(class="form-control pt-4") }}
+
+      {{ form.title.label() }}
+			{{ form.title(class="form-control pt-4") }}
+
+      {{ form.company.label() }}
+			{{ form.company(class="form-control pt-4") }}
+
+			{{ form.email.label(class="pt-4") }}
+			{{ form.email(class="form-control pt-4") }}
+
+      {{ form.phone.label() }}
+			{{ form.phone(class="form-control pt-4") }}
+
+			{{ form.address.label(class="pt-4") }}
+			{{ form.address(class="form-control") }}
+
+      {{ form.template.label(class="pt-4") }}
+			{{ form.template(class="form-check")}}
+
+			{{ form.submit(class="btn btn-outline-success ml-1 mt-5") }}
+
+
+		</form>
+	</div>
+	<p class="text-info ml-5 pt-4">**All fields are required.</p>
+
+</body>
+</html>

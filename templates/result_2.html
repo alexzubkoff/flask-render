@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+</head>
+<body>
+	<style type="text/css">
+		body{
+			font-family: 'Montserrat', sans-serif;
+		}
+	</style>
+	<div class="col-lg-12 text-center">
+		<div class="jumbotron">
+		<h1 class="display">Email signature in HTML format ({{ result[6][1] }})</h1>
+		<p class="lead">Email signature personal details Form with Flask !</p>
+
+		{% if success %}
+			<p class="lead text-success">Thank you for feedback !</p>
+		{% endif %}
+		</div>
+  <table class="table table-borderless">
+    {% for key, value in result %}
+
+    <tr>
+       <th> {{ key }} </th>
+       <td> {{ value }} </td>
+    </tr>
+
+    {% endfor %}
+ </table>
+
+</body>
+</html>
