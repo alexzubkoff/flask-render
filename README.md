@@ -17,6 +17,11 @@ Clone the project (after Git installation):
 (venv) git clone git@github.com:alexzubkoff/flask-render.git .
 
 ```
+Install all dependencies into yours venv:
+```sh
+(venv) pip install -r requirements.txt
+
+```
 ```sh
 1. Run the routes.py file.
 2. Go to your browser and type http://127.0.0.1.5000/
